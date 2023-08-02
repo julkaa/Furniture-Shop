@@ -1,0 +1,76 @@
+@mixin icon($filename) {
+    mask-image: url("/assets/icons/#{$filename}");
+}
+
+[class$="Icon"] {
+    display: block;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    background-color: black
+}
+
+.logoIcon {
+    @include icon("logo.svg");
+    background-color: #b88e2f;
+}
+
+.cartIcon {
+    @include icon("cart.svg");
+}
+
+.heartIcon {
+    @include icon("heart.svg")
+}
+
+.searchIcon {
+    @include icon("search.svg")
+}
+
+.userIcon {
+    @include icon("user.svg")
+}
+
+.compareIcon {
+    @include icon("compare.svg")
+}
+
+.shareIcon {
+    @include icon("share.svg")
+}
+
+.boldheartIcon {
+    @include icon("boldheart.svg")
+}
+
+.arrowIcon {
+    &.right {
+        @include icon("arrow.right.svg");
+    }
+
+}
+
+.dashIcon {
+    width: 27px;
+    height: 2px;
+}
+
+.tropyIcon {
+    @include icon("/warranty/trophy.svg")
+}
+
+.shippingIcon {
+    @include icon("/warranty/shipping.svg")
+}
+
+.guaranteeIcon {
+    @include icon("/warranty/guarantee.svg")
+}
+
+.customerSupportIcon {
+    @include icon("/warranty/customer-support.svg")
+}
+
+.filteringIcon {
+    @include icon("filtering.svg");
+    
+}
