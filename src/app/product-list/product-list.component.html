@@ -24,9 +24,9 @@
         </div>
         <div class="discountBadge" *ngIf="i.hasDiscount">- {{ i.discountPercentage }}%</div>
         <div class="newBadge" *ngIf="i.isNew">New</div>
-        <a href="">
+        <a>
             <div class="popup clickable">
-                <div class="button clickable">Add to cart</div>
+                <div (click)="addToCart(i)" class="button clickable">Add to cart</div>
                 <div class="subactions">
                     <div class="action"><i class="shareIcon"></i>Share</div>
                     <div class="action"><i class="compareIcon"></i>Compare</div>

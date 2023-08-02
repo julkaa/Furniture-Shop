@@ -7,12 +7,12 @@ import { ComponentStateMain } from 'src/app/services/user-state.models';
 import { UserStateService } from 'src/app/services/user-state.service';
 
 @Component({
-  selector: 'omeh-page',
+  selector: 'home-page',
   templateUrl: './home.component.html',
   styleUrls: ['../../../icons.scss', './home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+tmp = 'yeah';
   public readonly quantity: number = 8;
   public readonly data: Observable<ProductCard[]> = fakeDB.GetProductCardInfos();
   public readonly slides: Observable<homePageSlide[]> = fakeDB.GetHomePageSlides();
@@ -22,5 +22,17 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
+  }
+
+  public addCartItems(event:any): void {
+    console.log('lox');
+    console.log(event);
+    if(event){
+      this.tmp='no';
+    }
+  }
+
+  go(): void {
+    console.log(this.tmp);
   }
 }

@@ -15,6 +15,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {FormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PaginationPipe } from './pipes/pagination.pipe';
+import { CartPopupComponent } from './cart-popup/cart-popup.component';
+import {MatDialogModule} from "@angular/material/dialog";
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,14 +28,16 @@ import { PaginationPipe } from './pipes/pagination.pipe';
     NumberWithCommasPipe,
     PaginationPipe,
     HomeSliderComponent,
-    ShopComponent
+    ShopComponent,
+    CartPopupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatSelectModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatDialogModule
 
   ],
   providers: [

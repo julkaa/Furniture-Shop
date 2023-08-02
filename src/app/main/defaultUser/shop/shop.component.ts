@@ -5,6 +5,7 @@ import { fakeDB } from 'src/app/fakeDB/faceDB';
 import ProductCard from 'src/app/models/productCard.model';
 import { crumbBarTypes } from 'src/app/services/user-state.models';
 import { UserStateService } from 'src/app/services/user-state.service';
+import {UserCartService} from "../../../services/user-cart.service";
 
 @Component({
   selector: 'shop-section',
@@ -13,6 +14,7 @@ import { UserStateService } from 'src/app/services/user-state.service';
 
 })
 export class ShopComponent {
+  cartCollections: object[] = [];
   pRangeSelected: number = 16;
   pRangeChanged: boolean = false;
   public readonly productRange: number[] = [
