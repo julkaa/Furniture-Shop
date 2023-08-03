@@ -5,7 +5,7 @@ import {Injectable} from '@angular/core';
 })
 export class UserCartService {
   public sum: number = 0;
-  private cartCollections: any[] = [];
+  public cartCollections: any[] = [];
 
   constructor() {
   }
@@ -24,8 +24,6 @@ export class UserCartService {
       this.cartCollections.push(tmp);
     }
     this.getSumOfData();
-    console.log(this.cartCollections);
-    console.log(this.sum);
   }
 
   getArrayData(): any[] {
@@ -37,5 +35,10 @@ export class UserCartService {
     this.cartCollections.forEach(item => {
       this.sum += item.amount;
     });
+  }
+
+  deleteProduct(): any {
+    this.cartCollections = this.cartCollections.filter(obj => obj.amount !== 0);
+    this.getSumOfData();
   }
 }

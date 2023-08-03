@@ -1,11 +1,9 @@
-import { AsyncPipe } from '@angular/common';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
-import { fakeDB } from 'src/app/fakeDB/faceDB';
+import {Component} from '@angular/core';
+import {Observable} from 'rxjs';
+import {fakeDB} from 'src/app/fakeDB/faceDB';
 import ProductCard from 'src/app/models/productCard.model';
-import { crumbBarTypes } from 'src/app/services/user-state.models';
-import { UserStateService } from 'src/app/services/user-state.service';
-import {UserCartService} from "../../../services/user-cart.service";
+import {crumbBarTypes} from 'src/app/services/user-state.models';
+import {UserStateService} from 'src/app/services/user-state.service';
 
 @Component({
   selector: 'shop-section',
@@ -14,7 +12,6 @@ import {UserCartService} from "../../../services/user-cart.service";
 
 })
 export class ShopComponent {
-  cartCollections: object[] = [];
   pRangeSelected: number = 16;
   pRangeChanged: boolean = false;
   public readonly productRange: number[] = [
@@ -25,7 +22,7 @@ export class ShopComponent {
 
   orderBySelected: string = '';
   orderByChanged: boolean = false;
-  public readonly orderBy: {title: string, value: string}[] = [
+  public readonly orderBy: { title: string, value: string }[] = [
     {title: 'Default', value: ''},
     {title: 'Name', value: 'name'},
     {title: 'Price', value: 'price'},
@@ -36,6 +33,7 @@ export class ShopComponent {
   public readonly totalResultsNumber: Observable<number> = fakeDB.GetTotalResultsNumber();
   public totalPageNumber: number = 0;
   public readonly data: Observable<ProductCard[]> = fakeDB.GetProductCardInfos();
+
   constructor(private userStateService: UserStateService) {
     this.userStateService.updateMain({
       crumbBar: crumbBarTypes.big,
@@ -45,15 +43,19 @@ export class ShopComponent {
       this.totalPageNumber = Math.ceil(v / this.pRangeSelected)
     })
   }
+
   ngOnInit() {
   }
-  onProductRangeChange(){
+
+  onProductRangeChange() {
     this.pRangeChanged = true;
   }
-  onOrderByChange(){
+
+  onOrderByChange() {
     this.orderByChanged = true;
   }
-  changePage(page: number){
+
+  changePage(page: number) {
     this.currentPage = page;
   }
 }

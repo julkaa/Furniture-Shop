@@ -16,7 +16,7 @@ export class HeaderComponent {
   }
 
   public openCartSection(): void {
-    this.dialog.open(CartPopupComponent, {data: {isClose: true}});
+    this.dialog.open(CartPopupComponent, {width: '50%', data: {isClose: true}});
   }
 
 }

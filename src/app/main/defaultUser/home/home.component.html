@@ -1,68 +1,68 @@
 <section class="row discover">
-    <div class="box">
-        <p>
-            New Arrival
-        </p>
-        <h1>
-            Discover Our <br />
-            New Collection
-        </h1>
-        <p class="description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.
-        </p>
-        <div class="button clickable">
-            BUY NOW
-        </div>
+  <div class="box">
+    <p>
+      New Arrival
+    </p>
+    <h1>
+      Discover Our <br/>
+      New Collection
+    </h1>
+    <p class="description">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis.
+    </p>
+    <div class="button clickable">
+      BUY NOW
     </div>
+  </div>
 </section>
 <section class="row browseRange">
-    <h2 class="title2">
-        Browse The Range
-    </h2>
-    <p class="subtitle">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    </p>
-    <div class="items">
-        <a href="">
-            <div class="item clickable">
-                <div class="imgWrapper"><img src="/assets/images/diningRoom.png" alt=""></div>
-                <p>Dining</p>
-            </div>
-        </a>
-        <a href="">
-            <div class="item clickable">
-                <div class="imgWrapper"><img src="/assets/images/livingRoom.png" alt=""></div>
-                <p>Living</p>
-            </div>
-        </a>
-        <a href="">
-            <div class="item clickable">
-                <div class="imgWrapper"><img src="/assets/images/bedRoom.png" alt=""></div>
-                <p>Bedroom</p>
-            </div>
-        </a>
-    </div>
+  <h2 class="title2">
+    Browse The Range
+  </h2>
+  <p class="subtitle">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  </p>
+  <div class="items">
+    <a href="">
+      <div class="item clickable">
+        <div class="imgWrapper"><img alt="" src="/assets/images/diningRoom.png"></div>
+        <p>Dining</p>
+      </div>
+    </a>
+    <a href="">
+      <div class="item clickable">
+        <div class="imgWrapper"><img alt="" src="/assets/images/livingRoom.png"></div>
+        <p>Living</p>
+      </div>
+    </a>
+    <a href="">
+      <div class="item clickable">
+        <div class="imgWrapper"><img alt="" src="/assets/images/bedRoom.png"></div>
+        <p>Bedroom</p>
+      </div>
+    </a>
+  </div>
 </section>
 <section class="row productList">
-    <h1 class="title1">Our Products</h1>
-    <product-list (cartItemsEmitter)="addCartItems($event)" [quantity]=8 [data]=this.data></product-list>
-    <div class="button clickable" (click)="go()">Show More</div>
+  <h1 class="title1">Our Products</h1>
+  <product-list [data]=this.data [quantity]=8></product-list>
+  <div class="button clickable">Show More</div>
 </section>
 <section class="row inspiration">
-    <div class="titleSide">
-        <h1 class="title1">
-            50+ Beautiful rooms <br />
-            inspiration
-        </h1>
-        <p class="subtitle">
-            Our designer already made a lot of beautiful prototipe of rooms that inspire you
-        </p>
-        <div class="button clickable">
-            Explore More
-        </div>
+  <div class="titleSide">
+    <h1 class="title1">
+      50+ Beautiful rooms <br/>
+      inspiration
+    </h1>
+    <p class="subtitle">
+      Our designer already made a lot of beautiful prototype of rooms that inspire you
+    </p>
+    <div class="button clickable">
+      Explore More
     </div>
-    <div class="slider">
-        <home-slider [slides]=this.slides>
-        </home-slider>
-    </div>
+  </div>
+  <div class="slider">
+    <home-slider [slides]=this.slides>
+    </home-slider>
+  </div>
 </section>

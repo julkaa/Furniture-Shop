@@ -1,39 +1,39 @@
 <div class="productItems">
-    <div *ngFor="let i of data | async | slice:0:quantity" class="productItem">
-        <div class="imageWrapper">
-            <img src={{i.imageUrl}} alt="">
-        </div>
-        <div class="productInfo">
-            <div class="title">
-                {{i.name}}
-            </div>
-            <div class="shortDescription">
-                {{i.shortDescription}}
-            </div>
-            <div class="price">
-                <span class="currentPrice" *ngIf="i.hasDiscount">
+  <div *ngFor="let i of data | async | slice:0:quantity" class="productItem">
+    <div class="imageWrapper">
+      <img alt="" src={{i.imageUrl}}>
+    </div>
+    <div class="productInfo">
+      <div class="title">
+        {{i.name}}
+      </div>
+      <div class="shortDescription">
+        {{i.shortDescription}}
+      </div>
+      <div class="price">
+                <span *ngIf="i.hasDiscount" class="currentPrice">
                     $ {{i.price | numberWithCommas}}
                 </span>
-                <span class="previousPrice" *ngIf="i.hasDiscount">
+        <span *ngIf="i.hasDiscount" class="previousPrice">
                     $ {{i.discountedPrice | numberWithCommas}}
                 </span>
-                <span class="currentPrice" *ngIf="!i.hasDiscount">
+        <span *ngIf="!i.hasDiscount" class="currentPrice">
                     $ {{i.price | numberWithCommas}}
                 </span>
-            </div>
-        </div>
-        <div class="discountBadge" *ngIf="i.hasDiscount">- {{ i.discountPercentage }}%</div>
-        <div class="newBadge" *ngIf="i.isNew">New</div>
-        <a>
-            <div class="popup clickable">
-                <div (click)="addToCart(i)" class="button clickable">Add to cart</div>
-                <div class="subactions">
-                    <div class="action"><i class="shareIcon"></i>Share</div>
-                    <div class="action"><i class="compareIcon"></i>Compare</div>
-                    <div class="action"><i class="boldheartIcon"></i>Like</div>
-                </div>
-            </div>
-        </a>
+      </div>
     </div>
+    <div *ngIf="i.hasDiscount" class="discountBadge">- {{ i.discountPercentage }}%</div>
+    <div *ngIf="i.isNew" class="newBadge">New</div>
+    <a>
+      <div class="popup clickable">
+        <div (click)="addToCart(i)" class="button clickable">Add to cart</div>
+        <div class="subactions">
+          <div class="action"><i class="shareIcon"></i>Share</div>
+          <div class="action"><i class="compareIcon"></i>Compare</div>
+          <div class="action"><i class="boldheartIcon"></i>Like</div>
+        </div>
+      </div>
+    </a>
+  </div>
 
 </div>
