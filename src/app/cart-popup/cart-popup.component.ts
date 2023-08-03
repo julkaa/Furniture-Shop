@@ -6,7 +6,7 @@ import {UserCartService} from "../services/user-cart.service";
 @Component({
   selector: 'cart-popup',
   templateUrl: './cart-popup.component.html',
-  styleUrls: ['./cart-popup.component.scss']
+  styleUrls: ['./cart-popup.component.scss', "../styles/grid.scss"]
 })
 export class CartPopupComponent {
 
@@ -26,7 +26,7 @@ export class CartPopupComponent {
     this.cartService.getSumOfData();
   }
 
-  public go(): void {
-    console.log(this.cartService.cartCollections);
+  public deleteItem(index): void {
+    this.cartService.deleteProduct(index);
   }
 }

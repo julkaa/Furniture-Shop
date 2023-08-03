@@ -26,6 +26,10 @@ $primary: #B88E2F;
   @include icon("close.svg");
 }
 
+.deleteIcon {
+  @include icon("trash-can.svg");
+}
+
 .number-container {
   display: flex;
   align-items: center;
@@ -42,12 +46,23 @@ $primary: #B88E2F;
   font-size: 18px;
 }
 
-.productItems {
-  width: 100%;
-  display: grid;
+//.productItems {
+//  width: 100%;
+//}
+
+.button {
+  display: flex;
+  align-items: center;
   justify-content: center;
-  grid-template-columns: repeat(auto-fill, 285px);
-  grid-gap: 32px;
+  width: 180px;
+  height: 65px;
+  background-color: $primary;
+
+  color: #FFF;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
 }
 
 .productItem {

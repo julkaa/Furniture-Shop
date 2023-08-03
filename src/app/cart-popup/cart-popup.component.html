@@ -1,48 +1,53 @@
-<h2 mat-dialog-title>Cart ({{cartService.sum}})<a><span class="closeIcon linkIcon" mat-dialog-close></span></a></h2>
+<div style="display:flex; justify-content: space-between">
+  <div>
+    <h1 mat-dialog-title>Cart ({{cartService.sum}})</h1>
+  </div>
+  <div><a><span class="closeIcon linkIcon" mat-dialog-close></span></a></div>
+</div>
+
 
 <mat-dialog-content class="mat-typography productItems">
-  <div *ngFor="let product of cartService.cartCollections; let i = index" class="productItem">
-
-
-    <div class="imageWrapper">
-      <img alt="" src="{{product.item.imageUrl}}">
+  <div *ngFor="let product of cartService.cartCollections; let i = index" class="productItems row">
+    <div class="col-3">
+      <div class="imageWrapper">
+        <img alt="" src="{{product.item.imageUrl}}" style="width: 200px">
+      </div>
     </div>
-    <div class="productInfo">
-      <div class="title">
-        {{product.item.name}}
-      </div>
-      <div class="shortDescription">
-        {{product.item.shortDescription}}
-      </div>
-      <div class="price">
-                <span *ngIf="product.item.hasDiscount" class="currentPrice">
+    <div class="col-6">
+      <div class="productInfo">
+        <div class="title">
+          {{product.item.name}}
+        </div>
+        <div class="shortDescription">
+          {{product.item.shortDescription}}
+        </div>
+        <div class="price">
+          <span class="currentPrice">
                     $ {{product.item.price | numberWithCommas}}
                 </span>
-        <span *ngIf="product.item.hasDiscount" class="previousPrice">
-                    $ {{product.item.discountedPrice | numberWithCommas}}
-                </span>
-        <span *ngIf="!product.item.hasDiscount" class="currentPrice">
-                    $ {{product.item.price | numberWithCommas}}
-                </span>
+        </div>
+        <img alt="" src="/src/assets/icons/trash-can.svg">
+
+      </div>
+
+
+      <div class="number-container">
+        <button (click)="decrease(product, i)">-</button>
+        <span>{{ product.amount }}</span>
+        <button (click)="increase(product, i)">+</button>
       </div>
     </div>
-    <div *ngIf="product.item.hasDiscount" class="discountBadge">- {{ product.item.discountPercentage }}%</div>
-    <div *ngIf="product.item.isNew" class="newBadge">New</div>
-
-
-    <div class="number-container">
-      <button (click)="decrease(product, i)">-</button>
-      <span>{{ product.amount }}</span>
-      <button (click)="increase(product, i)">+</button>
+    <div class="col-1" style="display: flex; align-items: center;">
+      <span (click)="deleteItem(i)" class="deleteIcon linkIcon"></span>
     </div>
-
   </div>
   <div *ngIf="cartService.cartCollections.length === 0">
     <p>Your Cart Is Empty!</p>
   </div>
 
 </mat-dialog-content>
-<mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Checkout</button>
+<mat-dialog-actions style="justify-content: space-between">
+  <div>Total: $ {{cartService.price  | numberWithCommas}}</div>
+  <div class="button clickable" mat-dialog-close>Checkout</div>
 </mat-dialog-actions>
 
