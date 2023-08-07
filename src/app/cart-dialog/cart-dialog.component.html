@@ -1,0 +1,53 @@
+<div style="display:flex; justify-content: space-between">
+  <div>
+    <h1 mat-dialog-title>Shopping Cart ({{cartService.quantityOfAll}})</h1>
+  </div>
+  <div><a><span class="closeIcon linkIcon" mat-dialog-close></span></a></div>
+</div>
+
+
+<mat-dialog-content class="mat-typography">
+  <div *ngFor="let product of products; let i = index" class="row">
+    <div class="col-4">
+      <div class="imageWrapper">
+        <img alt="" src="{{product.info.imageUrl}}" style="width: 200px; border-radius: 10px;">
+      </div>
+    </div>
+    <div class="col-5">
+      <div class="productInfo">
+        <div class="title">
+          {{product.info.name}}
+        </div>
+        <div class="shortDescription">
+          {{product.info.shortDescription}}
+        </div>
+        <div class="price">
+          <span class="currentPrice">{{product.quantity}} X
+                  <span> $ {{product.info.price | numberWithCommas}}</span>
+                </span>
+        </div>
+        <img alt="" src="/src/assets/icons/trash-can.svg">
+
+      </div>
+
+
+      <div class="quantity">
+        <div (click)="decrease(i, product.quantity)" class="minus clickable">-</div>
+        {{product.quantity}}
+        <div (click)="increase(i, product.quantity)" class="plus clickable">+</div>
+      </div>
+    </div>
+    <div class="col-1" style="display: flex; align-items: center;">
+      <span (click)="deleteItem(product.id)" class="deleteIcon linkIcon"></span>
+    </div>
+  </div>
+  <div *ngIf="products.length === 0">
+    <p>Your Cart Is Empty!</p>
+  </div>
+
+</mat-dialog-content>
+<mat-dialog-actions style="justify-content: space-between">
+  <div>Total: $ {{cartService.totalPrice  | numberWithCommas}}</div>
+  <div [routerLink]="['/Checkout']" class="button clickable" mat-dialog-close>Checkout</div>
+</mat-dialog-actions>
+

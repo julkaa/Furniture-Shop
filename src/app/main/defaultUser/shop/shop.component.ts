@@ -6,7 +6,7 @@ import {crumbBarTypes} from 'src/app/services/user-state.models';
 import {UserStateService} from 'src/app/services/user-state.service';
 
 @Component({
-  selector: 'shop-section',
+  selector: 'shop',
   templateUrl: './shop.component.html',
   styleUrls: ['../../../icons.scss', './shop.component.scss'],
 
@@ -20,16 +20,6 @@ export class ShopComponent {
     64
   ];
 
-  orderBySelected: string = '';
-  orderByChanged: boolean = false;
-  public readonly orderBy: { title: string, value: string }[] = [
-    {title: 'Default', value: ''},
-    {title: 'Name', value: 'name'},
-    {title: 'Price', value: 'price'},
-  ];
-
-  currentPage: number = 1;
-  paginationDisplayRange: number = 3;
   public readonly totalResultsNumber: Observable<number> = fakeDB.GetTotalResultsNumber();
   public totalPageNumber: number = 0;
   public readonly data: Observable<ProductCard[]> = fakeDB.GetProductCardInfos();
@@ -44,18 +34,7 @@ export class ShopComponent {
     })
   }
 
-  ngOnInit() {
-  }
-
-  onProductRangeChange() {
+  public onProductRangeChange() {
     this.pRangeChanged = true;
-  }
-
-  onOrderByChange() {
-    this.orderByChanged = true;
-  }
-
-  changePage(page: number) {
-    this.currentPage = page;
   }
 }

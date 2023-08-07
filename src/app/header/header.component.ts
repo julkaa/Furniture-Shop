@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
-import {CartPopupComponent} from "../cart-popup/cart-popup.component";
 import {MatDialog} from "@angular/material/dialog";
-import {UserCartService} from "../services/user-cart.service";
+import {CartService, IProduct} from "../services/cart.service";
+import {CartDialogComponent} from "../cart-dialog/cart-dialog.component";
 
 @Component({
   selector: 'header-section',
@@ -12,11 +12,18 @@ import {UserCartService} from "../services/user-cart.service";
   ]
 })
 export class HeaderComponent {
-  constructor(private dialog: MatDialog, public cartService: UserCartService) {
+  products: IProduct[];
+
+  constructor(private dialog: MatDialog, public cartService: CartService) {
+    this.products = [];
+    cartService.Subscribe(v => {
+      this.products = v;
+      this.cartService.getSumOfItem(this.products);
+    })
   }
 
   public openCartSection(): void {
-    this.dialog.open(CartPopupComponent, {width: '50%', data: {isClose: true}});
+    this.dialog.open(CartDialogComponent, {width: '50%', data: {isClose: true}});
   }
 
 }

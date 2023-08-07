@@ -1,0 +1,100 @@
+<div class="container">
+  <div class="justify-content-center">
+    <h1 style="text-align: center">Confirm Purchase</h1>
+    <form (ngSubmit)="processPayment()" [formGroup]="form">
+      <div class="row">
+        <div class="col-5">
+          <div class="form-group">
+            <label>Name <span class="error">*</span></label>
+            <input (input)="formatName($event.target, 'nameControl')" formControlName="nameControl" required>
+            <span *ngIf="form.controls['nameControl'].hasError('required') && form.controls['nameControl'].touched"
+                  class="error">
+              Name is <strong>required</strong>
+            </span>
+          </div>
+        </div>
+        <div class="col-5">
+          <div class="form-group">
+            <label>Surname <span class="error">*</span></label>
+            <input (input)="formatName($event.target, 'surnameControl')" formControlName="surnameControl" required
+                   type="text">
+            <span
+              *ngIf="form.controls['surnameControl'].hasError('required') && form.controls['surnameControl'].touched"
+              class="error">
+              Surname is <strong>required</strong>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-5">
+          <div class="form-group">
+            <label>Email <span class="error">*</span></label>
+            <input formControlName="emailControl" required type="email">
+            <span
+              *ngIf="form.controls['emailControl'].hasError('required') && form.controls['emailControl'].touched"
+              class="error">
+              Email is <strong>required</strong>
+            </span>
+          </div>
+        </div>
+        <div class="col-5">
+          <div class="form-group">
+            <label>Card Number <span class="error">*</span></label>
+            <input (input)="formatCardNumber($event.target)" formControlName="cardNumberControl"
+                   placeholder="XXXX-XXXX-XXXX-XXXX" required type="text">
+            <span
+              *ngIf="form.controls['cardNumberControl'].hasError('required') && form.controls['cardNumberControl'].touched"
+              class="error">
+              Card Number is <strong>required</strong>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <label style="margin-left: 20%">Expiration Date <span class="error">*</span></label>
+      <div class="row">
+        <div class="col-3">
+          <div class="form-group">
+            <select formControlName="monthControl" required>
+              <option disabled hidden selected value="">Month</option>
+              <option *ngFor="let month of months" [value]="month">{{month}}</option>
+            </select>
+            <span
+              *ngIf="form.controls['monthControl'].hasError('required') && form.controls['monthControl'].touched"
+              class="error">
+              Month is <strong>required</strong>
+            </span>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="form-group">
+            <select formControlName="yearControl" required>
+              <option disabled hidden selected value="">Year</option>
+              <option *ngFor="let year of years" [value]="year.slice(2,4)">{{year}}</option>
+            </select>
+            <span
+              *ngIf="form.controls['yearControl'].hasError('required') && form.controls['yearControl'].touched"
+              class="error">
+              Year is <strong>required</strong>
+            </span>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="form-group" style="margin-top: -29px">
+            <label>CVV <span class="error">*</span></label>
+            <input (input)="formatCvv($event.target)" formControlName="cvvControl" placeholder="XXX" required
+                   type="text">
+            <span
+              *ngIf="form.controls['cvvControl'].hasError('required') && form.controls['cvvControl'].touched"
+              class="error">
+              CVV is <strong>required</strong>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit">Pay Now</button>
+    </form>
+  </div>
+</div>

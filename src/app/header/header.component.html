@@ -18,10 +18,8 @@
       <li><a href=""><span class="userIcon linkIcon"></span></a></li>
       <li><a href=""><span class="searchIcon linkIcon"></span></a></li>
       <li><a href=""><span class="heartIcon linkIcon"></span></a></li>
-      <li (click)="openCartSection()"><a class="cart-icon"><span class="cartIcon linkIcon"></span>
-        <span class="badge">{{cartService.sum}}</span>
-      </a>
-      </li>
+      <li><a (click)="openCartSection()" class="cart-icon"><span class="cartIcon linkIcon"></span><span
+        class="badge">{{cartService.quantityOfAll}}</span></a></li>
     </ul>
   </nav>
 </header>

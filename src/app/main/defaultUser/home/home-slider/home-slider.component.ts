@@ -1,8 +1,8 @@
-import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
-import { Observable } from 'rxjs';
+import {Component, Input, OnInit} from '@angular/core';
+import {Observable} from 'rxjs';
 import homePageSlide from 'src/app/models/homePageSlide.model';
 import Swiper from 'swiper';
-import { Navigation, Pagination, EffectFade, Manipulation } from 'swiper/modules';
+import {EffectFade, Manipulation, Navigation, Pagination} from 'swiper/modules';
 
 Swiper.use([Navigation, Pagination, EffectFade, Manipulation]);
 
@@ -11,10 +11,11 @@ Swiper.use([Navigation, Pagination, EffectFade, Manipulation]);
   templateUrl: './home-slider.component.html',
   styleUrls: ['../../../../icons.scss', './home-slider.component.scss']
 })
-export class HomeSliderComponent {
+export class HomeSilderComponent implements OnInit {
   @Input() slides: Observable<homePageSlide[]> | undefined;
   public primarySwiper: Swiper | undefined;
   public secondarySwiper: Swiper | undefined;
+
   ngOnInit() {
 
     this.slides?.subscribe((slideList) => {
@@ -53,7 +54,7 @@ export class HomeSliderComponent {
             <img src="${s.secondary.imageUrl}">
             <div class="slide-content">
               <div class="slideInfo">
-                <span>0${index+1}</span>
+                <span>0${index + 1}</span>
                 <i class="dashIcon"></i>
                 <span>${s.secondary.roomType}</span>
               </div>
@@ -64,7 +65,8 @@ export class HomeSliderComponent {
       })
     })
   }
-  syncSliders(primary: Swiper) {
+
+  private syncSliders(primary: Swiper) {
     this.secondarySwiper?.slideTo(primary.realIndex);
   }
 }

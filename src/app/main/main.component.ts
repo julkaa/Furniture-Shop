@@ -1,7 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { UserStateService } from '../services/user-state.service';
-import { crumbBarTypes } from '../services/user-state.models';
-import { Subscription } from 'rxjs';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {UserStateService} from '../services/user-state.service';
+import {crumbBarTypes} from '../services/user-state.models';
+import {Subscription} from 'rxjs';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'main-section',
@@ -15,8 +16,8 @@ export class MainComponent implements OnInit, OnDestroy {
   crumbBarType: crumbBarTypes = this.enums.crumbBarTypes.none;
   isWarrantyBarActive: boolean = false;
   stateSubscribtion: Subscription | undefined;
-  constructor(private userStateService: UserStateService) {
 
+  constructor(private userStateService: UserStateService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -25,7 +26,9 @@ export class MainComponent implements OnInit, OnDestroy {
       this.isWarrantyBarActive = value.warrantyBar;
     })
   }
+
   ngOnDestroy(): void {
     this.stateSubscribtion?.unsubscribe();
   }
 }
+
