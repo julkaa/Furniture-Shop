@@ -1,76 +1,80 @@
 @mixin icon($filename) {
-    mask-image: url("/assets/icons/#{$filename}");
+  mask-image: url("/assets/icons/#{$filename}");
 }
 
 [class$="Icon"] {
-    display: block;
-    -webkit-mask-size: cover;
-    mask-size: cover;
-    background-color: black
+  display: block;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  background-color: black
 }
 
 .logoIcon {
-    @include icon("logo.svg");
-    background-color: #b88e2f;
+  @include icon("logo.svg");
+  background-color: #b88e2f;
 }
 
 .cartIcon {
-    @include icon("cart.svg");
+  @include icon("cart.svg");
 }
 
 .heartIcon {
-    @include icon("heart.svg")
+  @include icon("heart.svg")
 }
 
 .searchIcon {
-    @include icon("search.svg")
+  @include icon("search.svg")
 }
 
 .userIcon {
-    @include icon("user.svg")
+  @include icon("user.svg")
 }
 
 .compareIcon {
-    @include icon("compare.svg")
+  @include icon("compare.svg")
 }
 
 .shareIcon {
-    @include icon("share.svg")
+  @include icon("share.svg")
 }
 
 .boldheartIcon {
-    @include icon("boldheart.svg")
+  @include icon("boldheart.svg")
 }
 
 .arrowIcon {
-    &.right {
-        @include icon("arrow.right.svg");
-    }
+  &.right {
+    @include icon("arrow.right.svg");
+  }
 
 }
 
 .dashIcon {
-    width: 27px;
-    height: 2px;
+  width: 27px;
+  height: 2px;
 }
 
 .tropyIcon {
-    @include icon("/warranty/trophy.svg")
+  @include icon("/warranty/trophy.svg")
 }
 
 .shippingIcon {
-    @include icon("/warranty/shipping.svg")
+  @include icon("/warranty/shipping.svg")
 }
 
 .guaranteeIcon {
-    @include icon("/warranty/guarantee.svg")
+  @include icon("/warranty/guarantee.svg")
 }
 
 .customerSupportIcon {
-    @include icon("/warranty/customer-support.svg")
+  @include icon("/warranty/customer-support.svg")
 }
 
 .filteringIcon {
-    @include icon("filtering.svg");
-    
+  @include icon("filtering.svg");
+
+}
+
+.starIcon {
+  @include icon("star.svg")
 }
